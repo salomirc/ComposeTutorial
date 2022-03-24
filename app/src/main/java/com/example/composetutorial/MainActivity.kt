@@ -15,12 +15,10 @@ import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.example.composetutorial.ui.theme.ComposeTutorialTheme
-import com.example.composetutorial.ui.theme.MyTextStyle
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -68,17 +66,18 @@ fun MessageCard(msg: Message) {
                 Text(
                     text = msg.author,
                     color = MaterialTheme.colors.secondaryVariant,
-                    style = MyTextStyle
+                    style = MaterialTheme.typography.subtitle2
                 )
+                // Add a vertical space between the author and message texts
                 Spacer(modifier = Modifier.height(4.dp))
                 Surface(
                     shape = MaterialTheme.shapes.medium,
-                    elevation = 1.dp
+                    elevation = 2.dp
                 ) {
                     Text(
                         text = msg.body,
-                        modifier = Modifier.padding(all = 4.dp),
-                        style = MaterialTheme.typography.body2
+                        style = MaterialTheme.typography.body2,
+                        modifier = Modifier.padding(all = 4.dp)
                     )
                 }
             }
